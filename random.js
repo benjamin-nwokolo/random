@@ -5,12 +5,12 @@ const userInput = document.querySelector('.filter');
 const listItems =[]
 getData();
 
-
+// Fetching From the Api
 async function  getData (){
     const res = await fetch('https://randomuser.me/api?results=50')
     const {results}= await  res.json();
-   
-    // Clearing Results
+
+  // Clearing Result
 
 result.innerHTML =''
 
@@ -31,11 +31,10 @@ results.forEach(user => {
 });
 }
 
-
 //filtering the user input
 
 userInput.addEventListener('keyup', (e) =>{
-  const userValue = e.target.value.toLowerCase();
+ const userValue = e.target.value.toLowerCase();
  listItems.forEach((item)=>{
     if(item.innerText.toLowerCase().indexOf(userValue) !== -1){
       item.classList.remove('hide');
